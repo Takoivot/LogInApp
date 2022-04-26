@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: IBOutlets
     @IBOutlet var userNameTF: UITextField!
@@ -21,9 +21,15 @@ class ViewController: UIViewController {
     let userName = "Artur"
     let password = "qwerty"
     
+    
     // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userNameTF.delegate = self
+        passwordTF.delegate = self
+        
+        passwordTF.enablesReturnKeyAutomatically = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,15 +67,27 @@ class ViewController: UIViewController {
     }
     }
     @IBAction func hintUserName() {
-        showAlert(with: "Need help?", and: "Your name is \(userName)")
+        showAlert(with: "Need help?",
+                  and: "Your name is \(userName)")
     }
     
     @IBAction func hintPassword() {
-        showAlert(with: "Need help?", and: "Your password is \(password)")
+        showAlert(with: "Need help?",
+                  and: "Your password is \(password)")
     }
+    
+    //MARK: Public Method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        }
+        return true
+    }
+    
 }
 
-// MARK: Private Methods
+    // MARK: Private Methods
 extension ViewController {
     private func showAlert(with title: String, and massage: String){
         let alert = UIAlertController(title: title,
