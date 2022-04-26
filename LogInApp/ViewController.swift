@@ -10,12 +10,12 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: IBOutlets
+    @IBOutlet var scrollView: UIScrollView!
+    
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
     @IBOutlet var logInButton: UIButton!
-    @IBOutlet var forgotNameButton: UIButton!
-    @IBOutlet var forgotPasswordButton: UIButton!
 
     // MARK: Public Properties
     let userName = "Artur"
@@ -30,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         passwordTF.delegate = self
         
         passwordTF.enablesReturnKeyAutomatically = true
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,6 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         if textField == userNameTF {
             passwordTF.becomeFirstResponder()
+            
         }
         return true
     }

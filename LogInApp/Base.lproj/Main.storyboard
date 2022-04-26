@@ -82,8 +82,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="forgotNameButton" destination="RIz-G8-nUa" id="yZR-sv-kye"/>
-                        <outlet property="forgotPasswordButton" destination="6vY-2Q-All" id="LE6-5d-BVh"/>
                         <outlet property="logInButton" destination="sai-ie-8MU" id="cPc-CV-2be"/>
                         <outlet property="passwordTF" destination="AS0-IJ-Gzv" id="oFs-4k-ZKS"/>
                         <outlet property="userNameTF" destination="nxr-kb-whU" id="a0h-Xl-bPe"/>
