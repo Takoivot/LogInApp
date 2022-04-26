@@ -19,12 +19,4 @@ class LogOutViewController: UIViewController {
         welcomeUser.text = "Welcome, \(welcomeU)"
     }
 
-        
-   /* @IBAction func logOutButtonPressed() {
-        dismiss(animated: true)
-    }*/
-    
-
-    
-
 }
