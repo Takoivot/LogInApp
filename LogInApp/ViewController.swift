@@ -25,7 +25,12 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let logOutVC = segue.destination as? LogOutViewController else {return}
-        //logOutVC.welcomeUser.text = userName
+        logOutVC.welcomeU = userNameTF.text ?? "Enter User Name"
+    }
+    
+    @IBAction func unwindSegueToLogInScreen(_ segue: UIStoryboardSegue){
+        userNameTF.text = ""
+        passwordTF.text = ""
     }
 
 

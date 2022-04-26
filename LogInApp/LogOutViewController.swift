@@ -12,14 +12,17 @@ class LogOutViewController: UIViewController {
     
     @IBOutlet var welcomeUser: UILabel!
     
+    var welcomeU: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        welcomeUser.text = "Welcome, \(welcomeU)"
     }
 
         
-    @IBAction func logOutButtonPressed() {
+   /* @IBAction func logOutButtonPressed() {
         dismiss(animated: true)
-    }
+    }*/
     
 
     

@@ -25,12 +25,12 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="I96-yQ-PI7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AS0-IJ-Gzv">
                                         <rect key="frame" x="0.0" y="59" width="200" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -104,7 +104,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="logOutButtonPressed" destination="2L8-mg-drT" eventType="touchUpInside" id="Eq2-f8-nzB"/>
+                                    <segue destination="Dbd-vQ-efX" kind="unwind" unwindAction="unwindSegueToLogInScreen:" id="QT6-ej-G01"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,6 +124,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="278-1Q-gl4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Dbd-vQ-efX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="787" y="98"/>
         </scene>
