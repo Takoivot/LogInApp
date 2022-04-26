@@ -9,16 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //MARK: IBOutlets
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var forgotNameButton: UIButton!
     @IBOutlet var forgotPasswordButton: UIButton!
-    
+
+    //MARK: Public Properties
     let userName = "Artur"
     let password = "qwerty"
     
+    //MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,6 +31,12 @@ class ViewController: UIViewController {
         logOutVC.welcomeU = userNameTF.text ?? "Enter User Name"
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            view.endEditing(true)
+            super.touchesBegan(touches, with: event)
+    }
+    
+    //MARK: IBActions
     @IBAction func unwindSegueToLogInScreen(_ segue: UIStoryboardSegue){
         userNameTF.text = ""
         passwordTF.text = ""
