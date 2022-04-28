@@ -13,10 +13,11 @@ class LogOutViewController: UIViewController {
     @IBOutlet var welcomeUser: UILabel!
     
     var welcomeU: String = ""
+    var user: InfoUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeUser.text = "Welcome, \(welcomeU)"
+        welcomeUser.text = "Welcome, \(user.human.fullName)"
     }
 
 }
