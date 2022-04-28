@@ -10,16 +10,13 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: IBOutlets
-    @IBOutlet var scrollView: UIScrollView!
-    
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
     @IBOutlet var logInButton: UIButton!
 
-    // MARK: Public Properties
-    let userName = "Artur"
-    let password = "qwerty"
+    // MARK: Private Properties
+    private let user = InfoUser.getInfoUser()
     
     
     // MARK: Override Methods
@@ -34,8 +31,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let logOutVC = segue.destination as? LogOutViewController else {return}
-        logOutVC.welcomeU = userNameTF.text ?? "Enter User Name"
+        //guard let logOutVC = segue.destination as? LogOutViewController else {return}
+        //logOutVC.welcomeU = userNameTF.text ?? "Enter User Name"
+        guard let tubBarVC = segue.destination as? UITabBarController else {return}
+        guard let viewControllers = tubBarVC.viewControllers else {return}
+        
+        viewControllers.forEach{
+            if let logOutVC = $0 as? LogOutViewController  {
+                logOutVC.user = user
+            } else if let navigationVC = $0 as? UINavigationController {
+                let infoUserVC = navigationVC.topViewController as? UserInfoViewController
+                infoUserVC?.user = user
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,19 +70,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
     }
         
-        if enterName != userName || enterPassword != password  {
+        if enterName != user.userName || enterPassword != user.userPassword  {
             showAlert(with: "Sorry, wrong User Name or Password",
                       and: "Try Again")
     }
     }
     @IBAction func hintUserName() {
         showAlert(with: "Need help?",
-                  and: "Your name is \(userName)")
+                  and: "Your name is \(user.userName)")
     }
     
     @IBAction func hintPassword() {
         showAlert(with: "Need help?",
-                  and: "Your password is \(password)")
+                  and: "Your password is \(user.userPassword)")
     }
     
     //MARK: Public Method
